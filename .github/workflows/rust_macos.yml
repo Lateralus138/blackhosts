@@ -1,0 +1,49 @@
+name: Macos Build
+
+on:
+  push:
+    branches:
+      - macos
+
+jobs:
+  build_and_test_macos:
+    name: Rust Macos Build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --all-features
+      - name: Remove Redundant
+        run: |
+          rm -rf target/release/.fingerprint
+          rm -rf target/release/build
+          rm -rf target/release/deps
+          rm -f target/release/.cargo-lock
+          rm -f target/release/blackhosts.d
+          rm -f target/.rustc_info.json
+          rm -f target/release/blackhosts_darwin
+      - name: Rename Bin
+        run: |
+          mv target/release/blackhosts target/release/blackhosts_darwin
+      - name: Push Changes
+        run: |
+          git pull origin macos
+          git config --global user.name "Lateralus138"
+          git config --global user.email "faithnomoread@yahoo.com"
+          git add .
+          git commit --allow-empty -m "Macos Build Compile & Test"
+          git push -u origin macos --force
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: True
+          tag: 1.0.0.0
+          name: Stable Release
+          prerelease: False
+          artifacts: "target/release/blackhosts_darwin"
+          token: ${{ secrets.GITHUB_TOKEN }}
