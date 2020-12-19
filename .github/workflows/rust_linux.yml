@@ -1,0 +1,47 @@
+name: Linux Build
+on:
+  push:
+    branches:
+      - linux
+jobs:
+  build_and_test_linux:
+    name: Rust Linux Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --all-features
+      - name: Remove Redundant
+        run: |
+          rm -rf target/release/.fingerprint
+          rm -rf target/release/build
+          rm -rf target/release/deps
+          rm -f target/release/.cargo-lock
+          rm -f target/.rustc_info.json
+          rm -f target/release/blackhosts.d
+          rm -f target/release/blackhosts_linux
+      - name: Rename Bin
+        run: |
+          mv target/release/blackhosts target/release/blackhosts_linux
+      - name: Push Changes
+        run: |
+          git pull origin linux
+          git config --global user.name "Lateralus138"
+          git config --global user.email "faithnomoread@yahoo.com"
+          git add target/release/blackhosts_linux
+          git commit --allow-empty -m "Linux Build Compile & Test"
+          git push -u origin linux --force
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: True
+          tag: 1.0.0.0
+          name: Stable Release
+          prerelease: False
+          artifacts: "target/release/blackhosts_linux"
+          token: ${{ secrets.GITHUB_TOKEN }}
