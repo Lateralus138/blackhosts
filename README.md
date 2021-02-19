@@ -5,7 +5,7 @@
 <img style="position: relative;z-index: 2;" align="top" alt="LOGO" src='./docs/media/logo/logo.png' width="96"><sup>[[1](#note1)]</sup>
 
 <a class="twitter-share-button"
-  href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=%27BlackHosts%27%20-%20Command%20line%20installer%20for%20hosts%20files%20found%20at%20github%2FStevenBlack%0ACross-platform%20for%20%23Windows%2C%20%23Linux%2C%20and%20%23MacOs%20written%20in%20%23RustLang%0A%23Programming%20%23Coding%20via%20%40thefluxapex%0A">![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FLateralus138%2Fblackhosts)</a> this project.
+  href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=%27BlackHosts%27%20-%20Command%20line%20installer%20for%20hosts%20files%20found%20at%20github%2FStevenBlack%0ACross-platform%20for%20%23Windows%2C%20%23Linux%2C%20and%20%23MacOs%20written%20in%20%23RustLang%0A%23Programming%20%23Coding%20via%20%40thefluxapex%0A">![Twitter URL](https://img.shields.io/twitter/url?style=for-the-badge&url=https%3A%2F%2Fgithub.com%2FLateralus138%2Fblackhosts)</a> this project.
 
 - [Black Hosts - Installer](#black-hosts---installer)
 	- [About](#about)
@@ -365,28 +365,28 @@ These are all the files included under 'Stable Release' on the 'Current Releases
 
 |Description|Status|
 |:---:|:---:|
-|Project Release Date|![GitHub Release Date](https://img.shields.io/github/release-date/Lateralus138/blackhosts?style=social)|
-|Total downloads for this project|![GitHub all releases](https://img.shields.io/github/downloads/Lateralus138/blackhosts/total?style=social)|
-|Complete repository size|![This Repo Size](https://img.shields.io/github/repo-size/Lateralus138/blackhosts?style=social)|
-|Commits in last month|![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Lateralus138/blackhosts?style=social)|
-|Commits in last year|![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Lateralus138/blackhosts?style=social)|
+|Project Release Date|![GitHub Release Date](https://img.shields.io/github/release-date/Lateralus138/blackhosts?style=for-the-badge)|
+|Total downloads for this project|![GitHub all releases](https://img.shields.io/github/downloads/Lateralus138/blackhosts/total?style=for-the-badge)|
+|Complete repository size|![This Repo Size](https://img.shields.io/github/repo-size/Lateralus138/blackhosts?style=for-the-badge)|
+|Commits in last month|![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Lateralus138/blackhosts?style=for-the-badge)|
+|Commits in last year|![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Lateralus138/blackhosts?style=for-the-badge)|
 
 ### Latest Version Status
 
 |Description|Status|
 |:---:|:---:|
-|Release version|![Release Version](https://img.shields.io/github/v/release/Lateralus138/blackhosts?style=social)|
-|Tag version|![Tag Version](https://img.shields.io/github/v/tag/Lateralus138/blackhosts?style=social)|
-|Total downloads for current version|![GitHub release (latest by date)](https://img.shields.io/github/downloads/Lateralus138/blackhosts/1.0.0.0/total?style=social)|
+|Release version|![Release Version](https://img.shields.io/github/v/release/Lateralus138/blackhosts?style=for-the-badge)|
+|Tag version|![Tag Version](https://img.shields.io/github/v/tag/Lateralus138/blackhosts?style=for-the-badge)|
+|Total downloads for current version|![GitHub release (latest by date)](https://img.shields.io/github/downloads/Lateralus138/blackhosts/1.0.0.0/total?style=for-the-badge)|
 
 #### Latest Build Status
 
 |Name|Status|Code Quality|
 |:---:|:---:|:---:|
-|Linux: `Build`/`Publish`|![blackhosts - Rust Build - Linux](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Linux%20Build/linux?style=social)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/linux?style=social)|
-|Debian: `Build`/`Publish`|![blackhosts - Rust Build - Debian](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Debian%20Build/debian?style=social)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/debian?style=social)|
-|Windows: `Build`/`Publish`|![blackhosts - Rust Build - Windows](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Windows%20Build/windows?style=social)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/windows?style=social)|
-|Macos: `Build`/`Publish`|![blackhosts - Rust Build - Macos](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Macos%20Build/macos?style=social)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/macos?style=social)|
+|Linux: `Build`/`Publish`|![blackhosts - Rust Build - Linux](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Linux%20Build/linux?style=for-the-badge)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/linux?style=for-the-badge)|
+|Debian: `Build`/`Publish`|![blackhosts - Rust Build - Debian](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Debian%20Build/debian?style=for-the-badge)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/debian?style=for-the-badge)|
+|Windows: `Build`/`Publish`|![blackhosts - Rust Build - Windows](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Windows%20Build/windows?style=for-the-badge)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/windows?style=for-the-badge)|
+|Macos: `Build`/`Publish`|![blackhosts - Rust Build - Macos](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Macos%20Build/macos?style=for-the-badge)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/macos?style=for-the-badge)|
 
 ## Notes
 
@@ -419,7 +419,7 @@ These are all the files included under 'Stable Release' on the 'Current Releases
 
 ## [LICENSE](./LICENSE)
 
-![License Info](https://img.shields.io/github/license/Lateralus138/blackhosts?style=social)
+![License Info](https://img.shields.io/github/license/Lateralus138/blackhosts?style=for-the-badge)
 
 >This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
