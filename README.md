@@ -5,7 +5,7 @@
 <img style="position: relative;z-index: 2;" align="top" alt="LOGO" src='./docs/media/logo/logo.png' width="96"><sup>[[1](#note1)]</sup>
 
 <a class="twitter-share-button"
-  href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=%27BlackHosts%27%20-%20Command%20line%20installer%20for%20hosts%20files%20found%20at%20github%2FStevenBlack%0ACross-platform%20for%20%23Windows%2C%20%23Linux%2C%20and%20%23MacOs%20written%20in%20%23RustLang%0A%23Programming%20%23Coding%20via%20%40thefluxapex%0A">![Twitter URL](https://img.shields.io/twitter/url?style=for-the-badge&url=https%3A%2F%2Fgithub.com%2FLateralus138%2Fblackhosts)</a> this project.
+  href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=%27BlackHosts%27%20-%20Command%20line%20installer%20for%20hosts%20files%20found%20at%20github%2FStevenBlack%0ACross-platform%20for%20%23Windows%2C%20%23Linux%2C%20and%20%23MacOs%20written%20in%20%23RustLang%0A%23Programming%20%23Coding%20via%20%40thefluxapex%0A">![Twitter URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FLateralus138%2Fblackhosts&label=Tweet%20This%20Project)</a>
 
 - [Black Hosts - Installer](#black-hosts---installer)
 	- [About](#about)
