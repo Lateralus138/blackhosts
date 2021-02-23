@@ -1,0 +1,9 @@
+Package: blackhosts        
+Version: 1.0.2021052             
+Section: Utilities             
+Priority: optional             
+Architecture: amd64             
+Essential: no             
+Installed-Size: 5260        
+Maintainer: https://github.com/Lateralus138/blackhosts            
+Description: This is a hosts file installer for hosts files found at the StevenBlack repository.  
