@@ -7,8 +7,6 @@
 <a class="twitter-share-button"
   href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=%27BlackHosts%27%20-%20Command%20line%20installer%20for%20hosts%20files%20found%20at%20github%2FStevenBlack%0ACross-platform%20for%20%23Windows%2C%20%23Linux%2C%20and%20%23MacOs%20written%20in%20%23RustLang%0A%23Programming%20%23Coding%20via%20%40thefluxapex%0A">![Twitter URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FLateralus138%2Fblackhosts&label=Tweet%20This%20Project)</a>
 
-***COMING SOON***: I will be creating an **AppImage**<sup>[[1: DDG Search](https://duckduckgo.com/?q=AppImage&t=newext&atb=v1-1&ia=web)]</sup> for this.
-
 - [Black Hosts - Installer](#black-hosts---installer)
 	- [About](#about)
 		- [Description](#description)
@@ -42,7 +40,8 @@
 	- [Project Status](#project-status)
 		- [Overall Status](#overall-status)
 		- [Latest Version Status](#latest-version-status)
-			- [Latest Build Status](#latest-build-status)
+			- [Latest Master Build Status](#latest-master-build-status)
+			- [Latest Branch Build Status](#latest-branch-build-status)
 	- [Notes](#notes)
 	- [Media](#media)
 		- [Logo](#logo)
@@ -375,13 +374,32 @@ These are all the files included under 'Stable Release' on the 'Current Releases
 
 ### Latest Version Status
 
-|Description|Status|
-|:---:|:---:|
-|Release version|![Release Version](https://img.shields.io/github/v/release/Lateralus138/blackhosts?style=for-the-badge)|
-|Tag version|![Tag Version](https://img.shields.io/github/v/tag/Lateralus138/blackhosts?style=for-the-badge)|
-|Total downloads for current version|![GitHub release (latest by date)](https://img.shields.io/github/downloads/Lateralus138/blackhosts/1.0.0.0/total?style=for-the-badge)|
+|Description|Status|Number of Downloads|
+|:---:|:---:|:---:|
+|Latest Release version|![Release Version](https://img.shields.io/github/v/release/Lateralus138/blackhosts?style=for-the-badge)|![GitHub release (latest by date)](https://img.shields.io/github/downloads/Lateralus138/blackhosts/1.0.0.0/total?style=for-the-badge)|
+|Latest Tag version, possible Pre-Release's|![Tag Version](https://img.shields.io/github/v/tag/Lateralus138/blackhosts?style=for-the-badge)|![GitHub release (latest by date)](https://img.shields.io/github/downloads/Lateralus138/blackhosts/1.0.2021054/total?style=for-the-badge)|
 
-#### Latest Build Status
+#### Latest Master Build Status
+
+|Name|Status|
+|:---:|:---:|
+|Code Quality|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/master?style=for-the-badge)|
+|Linux: `Build`/`Publish`|![blackhosts - Rust Build - Linux](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Linux%20Build/master?style=for-the-badge)|
+|Debian: `Build`/`Publish`|![blackhosts - Rust Build - Debian](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Debian%20Build/master?style=for-the-badge)|
+|Windows: `Build`/`Publish`|![blackhosts - Rust Build - Windows](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Windows%20Build/master?style=for-the-badge)|
+|MacOS: `Build`/`Publish`|![blackhosts - Rust Build - MacOS](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/MacOS%20Build/master?style=for-the-badge)|
+
+#### Latest Branch Build Status
+
+**NOTE**:These are generated with my original workflow from the secondary relative branches of this repository. These will soon be discontinued in favor of files wtih a different versioning system. The current files will be a *`Continuous Build`* and each version of the continuous build will also have a second archive versioning with a number system<sup>[see example below] bashed on the year multiplied by the numbered day of that year.</sup>.
+
+New Archive Version Example: `v1.0.109134`
+
+|1st #|2nd #|3rd #|
+|:---:|:---:|:---:|
+|1|0|109134|
+|Main Version|Update Version|Revision Version|
+|Main version number - rewrite, rare.|Updates, fixes, and refactor version number.|Day of latest version calulated by the current year multiplied by the current day of the year: 2021 * 54 (today is the 54th day of 2021).|
 
 |Name|Status|Code Quality|
 |:---:|:---:|:---:|
