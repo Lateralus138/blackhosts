@@ -1,0 +1,53 @@
+name: MacOS Build
+on:
+  repository_dispatch:
+    types: [trigger-macos-workflow]
+jobs:
+  build_and_test_macos:
+    name: Rust MacOS Build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Remove Redundant
+        run: |
+          if [[ -f "Cargo.lock" ]]; then
+            rm -f "Cargo.lock"
+          fi
+          if [[ -d "target/macos/release/" ]]; then
+            rm -rf "target/macos/release/"
+          fi
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --all-features --target-dir 'target/macos'
+      - name: Rename Bin
+        run: |
+          mv target/macos/release/blackhosts target/macos/release/blackhosts_darwin
+          blackhosts_darwin_md5_text='{\n\t"schemaVersion": 1,\n\t"color": "00aedb",\n\t"label": "blackhosts_darwin MD5",\n\t"message": "PLACEHOLDER",\n\t"labelColor": "1d1d1d",\n\t"style": "for-the-badge",\n\t"namedLogo": "apple"\n}'
+          if ! [[ -d "docs/json" ]]; then
+            mkdir -p docs/json
+          fi
+          if ! [[ -f "docs/json/blackhosts_darwin_md5.json" ]]; then
+            touch docs/json/blackhosts_darwin_md5.json
+          fi
+          echo -e "$blackhosts_darwin_md5_text" > docs/json/blackhosts_darwin_md5.json
+          perl -pi -w -e "s/\"message\": \".*\"/\"message\": \"$(md5 -r target/macos/release/blackhosts_darwin | cut -d' ' -f 1)\"/g" docs/json/blackhosts_darwin_md5.json
+          if [[ -f "Cargo.lock" ]]; then
+            rm -f "Cargo.lock"
+          fi
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: True
+          tag: 1.0.2021054
+          name: Stable Release
+          prerelease: True
+          artifacts: "target/macos/release/blackhosts_darwin"
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Built MacOS Binary
+          

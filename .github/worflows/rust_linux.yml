@@ -1,0 +1,60 @@
+name: Linux Build
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build_and_test_linux:
+    name: Rust Linux Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Remove Redundant
+        run: |
+          if [[ -f "Cargo.lock" ]]; then
+            rm -f "Cargo.lock"
+          fi
+          if [[ -d "target/linux/release/" ]]; then
+            rm -rf "target/linux/release/"
+          fi
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --all-features --target-dir 'target/linux'
+      - name: Rename Bin
+        run: |
+          mv target/linux/release/blackhosts target/linux/release/blackhosts_linux
+          blackhosts_linux_md5_text='{\n\t"schemaVersion": 1,\n\t"color": "00aedb",\n\t"label": "blackhosts_linux MD5",\n\t"message": "PLACEHOLDER",\n\t"labelColor": "1d1d1d",\n\t"style": "for-the-badge",\n\t"namedLogo": "linux"\n}'
+          if ! [[ -d "docs/json" ]]; then
+            mkdir -p docs/json
+          fi
+          if ! [[ -f "docs/json/blackhosts_linux_md5.json" ]]; then
+            touch docs/json/blackhosts_linux_md5.json
+          fi
+          echo -e "$blackhosts_linux_md5_text" > docs/json/blackhosts_linux_md5.json
+          sed -i "s/\"message\": \".*\"/\"message\": \"$(md5sum target/linux/release/blackhosts_linux | cut -d' ' -f 1)\"/g" docs/json/blackhosts_linux_md5.json
+          if [[ -f "Cargo.lock" ]]; then
+            rm -f "Cargo.lock"
+          fi
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: True
+          tag: 1.0.2021054
+          name: Stable Release
+          prerelease: True
+          artifacts: "target/linux/release/blackhosts_linux"
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Built Linux Binary
+      - name: Trigger Debian Workflow
+        if: success()
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+          repository: ${{ github.repository }}
+          event-type: trigger-debian-workflow
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'

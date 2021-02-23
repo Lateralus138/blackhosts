@@ -1,0 +1,62 @@
+name: Windows Build
+on:
+  repository_dispatch:
+    types: [trigger-windows-workflow]
+jobs:
+  build_and_test_windows:
+    name: Rust Windows Build
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Remove Redundant
+        run: |
+          Remove-Item -Recurse -Path '.\target\windows\release' -ErrorAction SilentlyContinue
+          Remove-Item -Path '.\Cargo.lock' -ErrorAction SilentlyContinue
+          $blackhosts_windows_md5_text = @'
+          {
+            "schemaVersion": 1,
+            "color": "00aedb",
+            "label": "blackhosts_windows.exe MD5",
+            "message": "PLACEHOLDER",
+            "labelColor": "1d1d1d",
+            "style": "for-the-badge",
+            "namedLogo": "windows"
+          }
+          '@
+          New-Item -ItemType Directory -Force -Path '.\docs\json'
+          Write-Output "$blackhosts_windows_md5_text" > .\docs\json\blackhosts_windows_md5.json
+          $file = ".\docs\json\blackhosts_windows_md5.json"
+          $md5 = New-Object -TypeName System.Security.Cryptography.MD5CryptoServiceProvider
+          $hash = [System.BitConverter]::ToString($md5.ComputeHash([System.IO.File]::ReadAllBytes($file)))
+          ((Get-Content -path $file -Raw) -replace 'PLACEHOLDER',$hash) | Set-Content -Path "$file"
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --all-features --target-dir 'target/windows'
+      - name: Rename Bin
+        run: |
+          Rename-Item -Path '.\target\windows\release\blackhosts.exe' -NewName 'blackhosts_windows.exe'
+          Remove-Item -Path '.\Cargo.lock' -ErrorAction SilentlyContinue
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: True
+          tag: 1.0.2021054
+          name: Stable Release
+          prerelease: True
+          artifacts: "target/windows/release/blackhosts_windows.exe"
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Built Windows Binary
+      - name: Trigger MacOS Workflow
+        if: success()
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+          repository: ${{ github.repository }}
+          event-type: trigger-macos-workflow
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'

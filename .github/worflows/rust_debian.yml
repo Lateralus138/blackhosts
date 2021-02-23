@@ -1,0 +1,49 @@
+name: Debian Build
+on:
+  repository_dispatch:
+    types: [trigger-debian-workflow]
+jobs:
+  build_and_test_debian:
+    name: Rust Debian Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Deb Package Build
+        run: |
+          if ! [[ -d "./debian/usr/bin" ]]; then
+            mkdir -p "./debian/usr/bin" || exit 1
+          fi
+          if ! [[ -d "./target/debian/release" ]]; then
+            mkdir -p "./target/debian/release" || exit 2
+          fi
+          cp "./target/linux/release/blackhosts_linux" "./debian/usr/bin/blackhosts" || exit 3
+          dpkg-deb --build "./debian" "./target/debian/release/blackhosts.deb" || exit 4
+          blackhosts_debian_md5_text='{\n\t"schemaVersion": 1,\n\t"color": "00aedb",\n\t"label": "blackhosts.deb MD5",\n\t"message": "PLACEHOLDER",\n\t"labelColor": "1d1d1d",\n\t"style": "for-the-badge",\n\t"namedLogo": "debian"\n}'
+          if ! [[ -d "docs/json" ]]; then
+            mkdir -p docs/json
+          fi
+          if ! [[ -f "docs/json/blackhosts_debian_md5.json" ]]; then
+            touch docs/json/blackhosts_debian_md5.json
+          fi
+          echo -e "$blackhosts_debian_md5_text" > docs/json/blackhosts_debian_md5.json
+          sed -i "s/\"message\": \".*\"/\"message\": \"$(md5sum target/debian/release/blackhosts.deb | cut -d' ' -f 1)\"/g" docs/json/blackhosts_debian_md5.json
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: True
+          tag: 1.0.2021054
+          name: Stable Release
+          prerelease: True
+          artifacts: "target/debian/release/blackhosts.deb"
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Built Debian Installer
+      - name: Trigger AppImage Workflow
+        if: success()
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+          repository: ${{ github.repository }}
+          event-type: trigger-windows-workflow
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'

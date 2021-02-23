@@ -9,3 +9,5 @@
 *.json linguist-detectable=false
 *.timestamp linguist-detectable=false
 *.xml linguist-detectable=false
+*.yml linguist-detectable=false
+*.yaml linguist-detectable=false
