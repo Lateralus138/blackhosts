@@ -11,3 +11,6 @@
 *.xml linguist-detectable=false
 *.yml linguist-detectable=false
 *.yaml linguist-detectable=false
+*.h linguist-detectable=false
+*.ll linguist-detectable=false
+*.llvm linguist-detectable=false
