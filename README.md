@@ -345,20 +345,11 @@ Current project links.
 |Main repository.|[https://github.com/Lateralus138/blackhosts](https://github.com/Lateralus138/blackhosts)|
 |Main repository - themed version.|[https://lateralus138.github.io/blackhosts](https://lateralus138.github.io/blackhosts)|
 |Current Releases|[https://github.com/Lateralus138/blackhosts/releases](https://github.com/Lateralus138/blackhosts/releases)|
-|Stable Release|[https://github.com/Lateralus138/blackhosts/releases/tag/1.0.0.0](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.0.0)|
+|Stable Release|[https://github.com/Lateralus138/blackhosts/releases/tag/1.0.2021054](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.2021054)|
 
 ### File Links
 
-Current release files.
-
-These are all the files included under 'Stable Release' on the 'Current Releases' page.
-
-|File Name|Description|Link|
-|:---|:---|:---|
-|blackhosts.deb|Debian package installer.|[./target/release/blackhosts.deb](https://cdn.jsdelivr.net/gh/Lateralus138/blackhosts@debian/target/release/blackhosts.deb)|
-|blackhosts_linux|Main Linux executable.|[./target/release/blackhosts_linux](https://cdn.jsdelivr.net/gh/Lateralus138/blackhosts@linux/target/release/blackhosts_linux)|
-|blackhosts_darwin|Main MacOS executable.|[.target/release/blackhosts_darwin](https://cdn.jsdelivr.net/gh/Lateralus138/blackhosts@macos/target/release/blackhosts_darwin)|
-|blackhosts_windows.exe|Main Windows executable.|[./target/release/blackhosts_windows.exe](https://cdn.jsdelivr.net/gh/Lateralus138/blackhosts@windows/target/release/blackhosts_windows.exe)|
+![[Most Current Releases](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.2021054)](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/current_releases.json)
 
 ## Project Status
 
