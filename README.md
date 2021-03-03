@@ -41,7 +41,6 @@
 		- [Overall Status](#overall-status)
 		- [Latest Version Status](#latest-version-status)
 			- [Latest Master Build Status](#latest-master-build-status)
-			- [Latest Branch Build Status](#latest-branch-build-status)
 	- [Notes](#notes)
 	- [Media](#media)
 		- [Logo](#logo)
@@ -372,15 +371,15 @@ Current project links.
 
 #### Latest Master Build Status
 
-|Name|Status|
-|:---:|:---:|
-|Code Quality|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/master?style=for-the-badge)|
-|Linux: `Build`/`Publish`|![blackhosts - Rust Build - Linux](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Linux%20Build/master?style=for-the-badge)|
-|Debian: `Build`/`Publish`|![blackhosts - Rust Build - Debian](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Debian%20Build/master?style=for-the-badge)|
-|Windows: `Build`/`Publish`|![blackhosts - Rust Build - Windows](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Windows%20Build/master?style=for-the-badge)|
-|MacOS: `Build`/`Publish`|![blackhosts - Rust Build - MacOS](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/MacOS%20Build/master?style=for-the-badge)|
+|Name|Status|MD5|
+|:---:|:---:|:---:|
+|Code Quality|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/master?style=for-the-badge)|NA|
+|Linux: `Build`/`Publish`|![blackhosts - Rust Build - Linux](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Linux%20Build/master?style=for-the-badge)|![Linux MD5](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_linux_md5.json)|
+|Debian: `Build`/`Publish`|![blackhosts - Rust Build - Debian](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Debian%20Build/master?style=for-the-badge)|![Linux MD5](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_debian_md5.json)|
+|Windows: `Build`/`Publish`|![blackhosts - Rust Build - Windows](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Windows%20Build/master?style=for-the-badge)|![Linux MD5](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_windows_md5.json)|
+|MacOS: `Build`/`Publish`|![blackhosts - Rust Build - MacOS](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/MacOS%20Build/master?style=for-the-badge)|![Linux MD5](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_darwin_md5.json)|
 
-#### Latest Branch Build Status
+<!-- #### Latest Branch Build Status
 
 **NOTE**:These are generated with my original workflow from the secondary relative branches of this repository. These will soon be discontinued in favor of files wtih a different versioning system. The current files will be a *`Continuous Build`* and each version of the continuous build will also have a second archive versioning with a number system<sup>[see example below]</sup> based on the year multiplied by the numbered day of that year.
 
@@ -397,7 +396,7 @@ New Archive Version Example: `v1.0.109134`
 |Linux: `Build`/`Publish`|![blackhosts - Rust Build - Linux](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Linux%20Build/linux?style=for-the-badge)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/linux?style=for-the-badge)|
 |Debian: `Build`/`Publish`|![blackhosts - Rust Build - Debian](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Debian%20Build/debian?style=for-the-badge)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/debian?style=for-the-badge)|
 |Windows: `Build`/`Publish`|![blackhosts - Rust Build - Windows](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Windows%20Build/windows?style=for-the-badge)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/windows?style=for-the-badge)|
-|Macos: `Build`/`Publish`|![blackhosts - Rust Build - Macos](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Macos%20Build/macos?style=for-the-badge)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/macos?style=for-the-badge)|
+|Macos: `Build`/`Publish`|![blackhosts - Rust Build - Macos](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Macos%20Build/macos?style=for-the-badge)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/macos?style=for-the-badge)| -->
 
 ## Notes
 
