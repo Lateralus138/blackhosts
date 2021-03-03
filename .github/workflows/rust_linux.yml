@@ -44,7 +44,7 @@ jobs:
           allowUpdates: True
           tag: 1.0.2021054
           name: Stable Release
-          prerelease: True
+          prerelease: False
           artifacts: "target/linux/release/blackhosts_linux"
           token: ${{ secrets.GITHUB_TOKEN }}
       - uses: stefanzweifel/git-auto-commit-action@v4
