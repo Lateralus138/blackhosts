@@ -35,8 +35,8 @@
 			- [Command Line Environment](#command-line-environment)
 		- [Examples](#examples)
 	- [Links](#links)
-		- [Project Links](#project-links)
 		- [File Links](#file-links)
+		- [Project Links](#project-links)
 	- [Project Status](#project-status)
 		- [Overall Status](#overall-status)
 		- [Latest Version Status](#latest-version-status)
@@ -336,6 +336,10 @@ All links pertinent to this project.
 
 All of the most current, up-to-date files are located on the 'Stable Release' page.
 
+### File Links
+
+[![CR](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/current_releases.json)](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.2021054)
+
 ### Project Links
 
 Current project links.
@@ -346,11 +350,6 @@ Current project links.
 |Main repository - themed version.|[https://lateralus138.github.io/blackhosts](https://lateralus138.github.io/blackhosts)|
 |Current Releases|[https://github.com/Lateralus138/blackhosts/releases](https://github.com/Lateralus138/blackhosts/releases)|
 |Stable Release|[https://github.com/Lateralus138/blackhosts/releases/tag/1.0.2021054](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.2021054)|
-
-### File Links
-
-[![CR](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/current_releases.json)](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.2021054)
-
 
 ## Project Status
 
@@ -368,7 +367,7 @@ Current project links.
 
 |Description|Status|Number of Downloads|
 |:---:|:---:|:---:|
-|Latest Release version|![Release Version](https://img.shields.io/github/v/release/Lateralus138/blackhosts?style=for-the-badge)|![GitHub release (latest by date)](https://img.shields.io/github/downloads/Lateralus138/blackhosts/total?style=for-the-badge)|
+|Latest Release version|![Release Version](https://img.shields.io/github/v/release/Lateralus138/blackhosts?style=for-the-badge)|![GitHub release (latest by date)](https://img.shields.io/github/downloads/Lateralus138/blackhosts/1.0.2021054/total?style=for-the-badge)|
 |Latest Tag version, possible Pre-Release's|![Tag Version](https://img.shields.io/github/v/tag/Lateralus138/blackhosts?style=for-the-badge)|![GitHub release (latest by date)](https://img.shields.io/github/downloads/Lateralus138/blackhosts/1.0.2021054/total?style=for-the-badge)|
 
 #### Latest Master Build Status
@@ -383,7 +382,7 @@ Current project links.
 
 #### Latest Branch Build Status
 
-**NOTE**:These are generated with my original workflow from the secondary relative branches of this repository. These will soon be discontinued in favor of files wtih a different versioning system. The current files will be a *`Continuous Build`* and each version of the continuous build will also have a second archive versioning with a number system<sup>[see example below] bashed on the year multiplied by the numbered day of that year.</sup>.
+**NOTE**:These are generated with my original workflow from the secondary relative branches of this repository. These will soon be discontinued in favor of files wtih a different versioning system. The current files will be a *`Continuous Build`* and each version of the continuous build will also have a second archive versioning with a number system<sup>[see example below]</sup> based on the year multiplied by the numbered day of that year.
 
 New Archive Version Example: `v1.0.109134`
 
