@@ -349,7 +349,8 @@ Current project links.
 
 ### File Links
 
-![[Most Current Releases](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.2021054)](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/current_releases.json)
+[![CR](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/current_releases.json)](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.2021054)
+
 
 ## Project Status
 
