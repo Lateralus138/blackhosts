@@ -42,7 +42,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: True
-          tag: 1.0.2021054
+          tag: 1.0.109134
           name: Stable Release
           prerelease: False
           artifacts: "target/macos/release/blackhosts_darwin"
