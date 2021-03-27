@@ -354,6 +354,8 @@ Current project links.
 
 ### Overall Status
 
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Lateralus138&repo=blackhosts)
+
 |Description|Status|
 |:---:|:---:|
 |Project Release Date|![GitHub Release Date](https://img.shields.io/github/release-date/Lateralus138/blackhosts?style=for-the-badge)|
