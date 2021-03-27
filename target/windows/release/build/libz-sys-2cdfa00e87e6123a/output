@@ -1,0 +1,72 @@
+cargo:rerun-if-env-changed=LIBZ_SYS_STATIC
+cargo:rerun-if-changed=build.rs
+note, vcpkg did not find zlib: Could not find Vcpkg tree: No vcpkg installation found. Set the VCPKG_ROOT environment variable or run 'vcpkg integrate install'
+TARGET = Some("x86_64-pc-windows-msvc")
+OPT_LEVEL = Some("3")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("false")
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/adler32.o" "-c" "src/zlib/adler32.c"
+adler32.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/compress.o" "-c" "src/zlib/compress.c"
+compress.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/crc32.o" "-c" "src/zlib/crc32.c"
+crc32.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/deflate.o" "-c" "src/zlib/deflate.c"
+deflate.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/infback.o" "-c" "src/zlib/infback.c"
+infback.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/inffast.o" "-c" "src/zlib/inffast.c"
+inffast.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/inflate.o" "-c" "src/zlib/inflate.c"
+inflate.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/inftrees.o" "-c" "src/zlib/inftrees.c"
+inftrees.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/trees.o" "-c" "src/zlib/trees.c"
+trees.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/uncompr.o" "-c" "src/zlib/uncompr.c"
+uncompr.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/zutil.o" "-c" "src/zlib/zutil.c"
+zutil.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/gzclose.o" "-c" "src/zlib/gzclose.c"
+gzclose.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/gzlib.o" "-c" "src/zlib/gzlib.c"
+gzlib.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/gzread.o" "-c" "src/zlib/gzread.c"
+gzread.c
+exit code: 0
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-O2" "-Brepro" "-I" "src/zlib" "-FoD:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/gzwrite.o" "-c" "src/zlib/gzwrite.c"
+gzwrite.c
+exit code: 0
+AR_x86_64-pc-windows-msvc = None
+AR_x86_64_pc_windows_msvc = None
+HOST_AR = None
+AR = None
+running: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX64\\x64\\lib.exe" "-out:D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\libz.a" "-nologo" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/adler32.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/compress.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/crc32.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/deflate.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/infback.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/inffast.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/inflate.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/inftrees.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/trees.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/uncompr.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/zutil.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/gzclose.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/gzlib.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/gzread.o" "D:\\a\\blackhosts\\blackhosts\\target/windows\\release\\build\\libz-sys-2cdfa00e87e6123a\\out\\build\\src/zlib/gzwrite.o"
+exit code: 0
+cargo:rustc-link-lib=static=z
+cargo:rustc-link-search=native=D:\a\blackhosts\blackhosts\target/windows\release\build\libz-sys-2cdfa00e87e6123a\out\build
+cargo:root=D:\a\blackhosts\blackhosts\target/windows\release\build\libz-sys-2cdfa00e87e6123a\out
+cargo:include=D:\a\blackhosts\blackhosts\target/windows\release\build\libz-sys-2cdfa00e87e6123a\out/include

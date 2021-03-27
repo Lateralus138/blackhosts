@@ -1,0 +1,11 @@
+D:\a\blackhosts\blackhosts\target/windows\release\deps\socket2-d1392343f5bc081a.rmeta: C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\lib.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\sockaddr.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\socket.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\utils.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\sys\windows.rs
+
+D:\a\blackhosts\blackhosts\target/windows\release\deps\libsocket2-d1392343f5bc081a.rlib: C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\lib.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\sockaddr.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\socket.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\utils.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\sys\windows.rs
+
+D:\a\blackhosts\blackhosts\target/windows\release\deps\socket2-d1392343f5bc081a.d: C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\lib.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\sockaddr.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\socket.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\utils.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\sys\windows.rs
+
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\lib.rs:
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\sockaddr.rs:
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\socket.rs:
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\utils.rs:
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\socket2-0.3.19\src\sys\windows.rs:

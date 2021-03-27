@@ -1,0 +1,11 @@
+D:\a\blackhosts\blackhosts\target/windows\release\deps\libc-8ca65077b5f08f87.rmeta: C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\lib.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\macros.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\fixed_width_ints.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\windows\mod.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\windows\msvc.rs
+
+D:\a\blackhosts\blackhosts\target/windows\release\deps\liblibc-8ca65077b5f08f87.rlib: C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\lib.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\macros.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\fixed_width_ints.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\windows\mod.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\windows\msvc.rs
+
+D:\a\blackhosts\blackhosts\target/windows\release\deps\libc-8ca65077b5f08f87.d: C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\lib.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\macros.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\fixed_width_ints.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\windows\mod.rs C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\windows\msvc.rs
+
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\lib.rs:
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\macros.rs:
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\fixed_width_ints.rs:
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\windows\mod.rs:
+C:\Users\runneradmin\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.91\src\windows\msvc.rs:
