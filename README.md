@@ -2,13 +2,14 @@
 
 <img style="position: relative;margin-bottom: -48px;z-index: 1;" align="bottom" alt='FIRE' width='96' src='./docs/media/misc/fire_explosion_dark.gif'>
 
+![Star Badge](https://img.shields.io/github/stars/Lateralus138/blackhosts?logo=image/png;base64,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&style=for-the-badge&labelColor=F0F0F0&color=FF6347)
+
 <img style="position: relative;z-index: 2;" align="top" alt="LOGO" src='./docs/media/logo/logo.png' width="96"><sup>[[1](#note1)]</sup>
 
 <a class="twitter-share-button"
   href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=%27BlackHosts%27%20-%20Command%20line%20installer%20for%20hosts%20files%20found%20at%20github%2FStevenBlack%0ACross-platform%20for%20%23Windows%2C%20%23Linux%2C%20and%20%23MacOs%20written%20in%20%23RustLang%0A%23Programming%20%23Coding%20via%20%40thefluxapex%0A">![Twitter URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FLateralus138%2Fblackhosts&label=Tweet%20This%20Project)</a>
 
 - [Black Hosts - Installer](#black-hosts---installer)
-	- [Support Me If You Like](#support-me-if-you-like)
 	- [About](#about)
 		- [Description](#description)
 			- [Disclaimer](#disclaimer)
@@ -42,6 +43,7 @@
 		- [Overall Status](#overall-status)
 		- [Latest Version Status](#latest-version-status)
 			- [Latest Master Build Status](#latest-master-build-status)
+	- [Support Me If You Like](#support-me-if-you-like)
 	- [Notes](#notes)
 	- [Media](#media)
 		- [Logo](#logo)
@@ -49,18 +51,6 @@
 			- [Help Screen](#help-screen)
 			- [Demo Screen](#demo-screen)
 	- [LICENSE](#license)
-
----
-
-## Support Me If You Like
-
-If you like this project and care to donate to my ***PayPal***:
-
-[![PayPal Donation](docs/media/images/paypal_donate_button.png)](https://paypal.me/ianapride?locale.x=en_US)
-
-Or ***Buy Me A Coffee*** if your prefer:
-
-[![Buy Me A Coffee](./docs/media/images/buymeacoffe_a.png)](https://www.buymeacoffee.com/ianalanpride)
 
 ---
 
@@ -95,6 +85,8 @@ If no *alternates* option is passed it defaults to the main root *hosts* file.
 #### Motivation
 
 I have quite a few devices/machines that I administrate/maintain and I'm constantly changing the *hosts* files for various reasons and this just makes it to where I can do it *on-the-fly* without having to open a browser or editor or anything. This also makes it to where I can automate this in a root *cronjob* or administrative *task*/*service*.
+
+---
 
 ## Usage
 
@@ -365,6 +357,8 @@ Current project links.
 |Current Releases|[https://github.com/Lateralus138/blackhosts/releases](https://github.com/Lateralus138/blackhosts/releases)|
 |Stable Release|[https://github.com/Lateralus138/blackhosts/releases/tag/1.0.109134](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.109134)|
 
+---
+
 ## Project Status
 
 ### Overall Status
@@ -415,6 +409,20 @@ New Archive Version Example: `v1.0.109134`
 |Windows: `Build`/`Publish`|![blackhosts - Rust Build - Windows](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Windows%20Build/windows?style=for-the-badge)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/windows?style=for-the-badge)|
 |Macos: `Build`/`Publish`|![blackhosts - Rust Build - Macos](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Macos%20Build/macos?style=for-the-badge)|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/macos?style=for-the-badge)| -->
 
+---
+
+## Support Me If You Like
+
+If you like this project and care to donate to my ***PayPal***:
+
+[![PayPal Donation](docs/media/images/paypal_donate_button.png)](https://paypal.me/ianapride?locale.x=en_US)
+
+Or ***Buy Me A Coffee*** if your prefer:
+
+[![Buy Me A Coffee](./docs/media/images/buymeacoffe_a.png)](https://www.buymeacoffee.com/ianalanpride)
+
+---
+
 ## Notes
 
 |#|Description|Link|
@@ -425,6 +433,8 @@ New Archive Version Example: `v1.0.109134`
 |<sup>4</sup><a name="note4"></a>|*JSDELIVR* is a common file delivery system for files hosted at *GitHub*.|[JSDELIVR WebSite](https://www.jsdelivr.com)|
 |<sup>5</sup><a name="note5"></a>|The Debian `.deb` file is a Linux application package installer/delivery system.|[DuckDuckGo Search](https://duckduckgo.com/?q=what+is+a+Debian+.deb+file&t=vivaldi&ia=web)|
 |<sup>6</sup><a name="note6"></a>|*AppImage* is a portable executable system with sand-boxing capabilities and no need to worry about dependencies. There isn't much need to have an *AppImage* with this seeing that it has no dependencies, but if anyone wants it I will considering creating one.|[DuckDuckGo Search](https://duckduckgo.com/?q=what+is+an+AppImage+file&t=vivaldi&ia=web)|
+
+---
 
 ## Media
 
@@ -443,6 +453,8 @@ New Archive Version Example: `v1.0.109134`
 #### Demo Screen
 
 ![Demo Screen](docs/media/screens/demo.png)
+
+---
 
 ## [LICENSE](./LICENSE)
 

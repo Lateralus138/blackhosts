@@ -1,7 +1,8 @@
 name: Linux Build
 on:
   push:
-    branches: [ master ]
+    paths:
+      '**.rs'
 jobs:
   build_and_test_linux:
     name: Rust Linux Build
