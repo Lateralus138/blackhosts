@@ -24,9 +24,7 @@ fn main() {
     let mut affirm_bool: bool = false;
     let mut quiet_bool: bool = false;
     let mut skip_bool: bool = false;
-    let affirm_regex = Regex::new(r"^-([yY]|-[yY][eE][sS])$").unwrap();
-    let quiet_regex = Regex::new(r"^-([qQ]|-[qQ][uU][iI][eE][tT])$").unwrap();
-    let help_regex = Regex::new(r"^-([hH]|-[hH][eE][lL][pP])$").unwrap();
+
     let help_func = |code: u8, msg: &str| {
         let mesg;
         let extra_line: &str;
@@ -82,6 +80,9 @@ fn main() {
         exit(code as i32);
     };
     if &arg_vector.len() != &0 {
+        let affirm_regex = Regex::new(r"^-([yY]|-[yY][eE][sS])$").unwrap();
+        let quiet_regex = Regex::new(r"^-([qQ]|-[qQ][uU][iI][eE][tT])$").unwrap();
+        let help_regex = Regex::new(r"^-([hH]|-[hH][eE][lL][pP])$").unwrap();
         for arg_iter in &arg_vector {
             if help_regex.is_match(&arg_iter) {
                 skip_bool = true;
@@ -231,7 +232,7 @@ fn main() {
             exit(5);
         }
     };
-    match hosts_file.write_all(&data_vector.to_owned()) {
+    match hosts_file.write_all(&data_vector) {
         Ok(_) => {
             if ! quiet_bool {
                 println!(
