@@ -16,16 +16,27 @@ jobs:
     name: Build Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - name: Test Build
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Toolchain Setup
         uses: actions-rs/toolchain@v1.0.7
         with:
           toolchain: stable
-      - uses: actions-rs/cargo@v1.0.3
+      - name: Pre-Setup
+        run: |
+          mkdir -p build/{windows,macos,linux,debian}
+          find build -type d
+      - name: Build
+        uses: actions-rs/cargo@v1.0.3
         with:
           command: build
           args: --release --all-targets
-      - name: Check
+      - name: Move Linux Build
         run: |
-          find target/ -type f
+          build="./target/release/blackhosts"
+          if [[ -x "$build" ]]; then
+            mv "$build" build/linux/blackhosts_linux
+          fi
+          find build -type f
+
           
