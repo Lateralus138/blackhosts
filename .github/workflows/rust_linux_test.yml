@@ -25,23 +25,18 @@ jobs:
       - name: Pre-Setup
         run: |
           mkdir -p build/{linux,debian}
-          find build -type d
-      - name: Build
+      - name: Build Linux
         uses: actions-rs/cargo@v1.0.3
         with:
           command: build
           args: --release
       - name: Move Linux Build
         run: |
-          echo "==================================="
-          cat docs/json/blackhosts_linux_md5.json
-          echo "==================================="
-
           build="./target/release/blackhosts"
           if [[ -x "$build" ]]; then
             mv "$build" build/linux/blackhosts_linux
           else
-            exit 1
+            exit 255
           fi
           blackhosts_linux_md5_text='{\n\t"schemaVersion": 1,\n\t"color": "00aedb",\n\t"label": "blackhosts_linux MD5",\n\t"message": "PLACEHOLDER",\n\t"labelColor": "1d1d1d",\n\t"style": "for-the-badge",\n\t"namedLogo": "linux"\n}'
           if ! [[ -d "docs/json" ]]; then
@@ -52,10 +47,11 @@ jobs:
           fi
           echo -e "$blackhosts_linux_md5_text" > docs/json/blackhosts_linux_md5.json
           sed -i "s/\"message\": \".*\"/\"message\": \"$(md5sum build/linux/blackhosts_linux | cut -d' ' -f 1)\"/g" docs/json/blackhosts_linux_md5.json
-          find build -type f
-          find docs/json -type f
-          echo "==================================="
-          cat docs/json/blackhosts_linux_md5.json
-          echo "==================================="
-
-          
+      - name: Release Linux
+        uses: softprops/action-gh-release@v3
+        if: github.ref_type == 'tag'
+        with:
+          files: |
+            build/linux/blackhosts_linux
+          name: ${{ env.RELEASE_TITLE }}
+          prerelease: ${{ env.PRERELEASE }}
