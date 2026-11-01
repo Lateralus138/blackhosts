@@ -1,0 +1,31 @@
+name: Linux Build Test
+on:
+  push:
+    branches:
+      - master
+    paths:
+      '.prerelease'
+env:
+  RELEASE_TITLE: "BlackHosts"
+  RELEASE_FILE: "./docs/md/release.md"
+  PRERELEASE_FILE: "./docs/md/pre-release.md"
+  PRERELEASE: true
+
+jobs:
+  build_test:
+    name: Build Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Test Build
+      - uses: actions-rs/toolchain@v1.0.7
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1.0.3
+        with:
+          command: build
+          args: --release --all-targets
+      - name: Check
+        run: |
+          find target/ -type f
+          
