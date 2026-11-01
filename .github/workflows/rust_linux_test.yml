@@ -53,7 +53,7 @@ jobs:
           echo -e "$blackhosts_linux_md5_text" > docs/json/blackhosts_linux_md5.json
           sed -i "s/\"message\": \".*\"/\"message\": \"$(md5sum target/linux/release/blackhosts_linux | cut -d' ' -f 1)\"/g" docs/json/blackhosts_linux_md5.json
           find build -type f
-          find docs/json -type
+          find docs/json -type f
           echo "==================================="
           cat docs/json/blackhosts_linux_md5.json
           echo "==================================="
