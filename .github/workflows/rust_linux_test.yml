@@ -23,8 +23,24 @@ jobs:
         with:
           toolchain: stable
       - name: Pre-Setup
+        id: pre-setup
         run: |
           mkdir -p build/{linux,debian}
+          if ${{ env.PRERELEASE }}; then
+            release_file=${{ env.PRERELEASE_FILE }}
+          else
+            release_file=${{ env.RELEASE_FILE }}
+          fi
+          if [[ -n "$release_file" ]]; then
+            release_body=$(cat $release_file)
+          else
+            release_body=${{ env.RELEASE_TITLE }}
+          fi
+          {
+            echo "body<<EOF"
+            echo "$release_body"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
       - name: Build Linux
         uses: actions-rs/cargo@v1.0.3
         with:
@@ -51,7 +67,9 @@ jobs:
         uses: softprops/action-gh-release@v3
         if: github.ref_type == 'tag'
         with:
+          draft: false
           files: |
             build/linux/blackhosts_linux
           name: ${{ env.RELEASE_TITLE }}
           prerelease: ${{ env.PRERELEASE }}
+          body: ${{ steps.pre-setup.outputs.body }}
