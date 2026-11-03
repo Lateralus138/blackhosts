@@ -355,7 +355,6 @@ Current project links.
 |Main repository.|[https://github.com/Lateralus138/blackhosts](https://github.com/Lateralus138/blackhosts)|
 |Main repository - themed version.|[https://lateralus138.github.io/blackhosts](https://lateralus138.github.io/blackhosts)|
 |Current Releases|[https://github.com/Lateralus138/blackhosts/releases](https://github.com/Lateralus138/blackhosts/releases)|
-|Stable Release|[https://github.com/Lateralus138/blackhosts/releases/tag/1.0.109134](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.109134)|
 
 ---
 
@@ -363,7 +362,7 @@ Current project links.
 
 ### Overall Status
 
-![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Lateralus138&repo=blackhosts)
+![Readme Card](https://github-stats-extended.vercel.app/api/pin/?username=Lateralus138&repo=blackhosts&theme=synthwave)
 
 |Description|Status|
 |:---:|:---:|
@@ -382,13 +381,13 @@ Current project links.
 
 #### Latest Master Build Status
 
-|Name|Status|MD5|
+|Name|Status|sha256|
 |:---:|:---:|:---:|
 |Code Quality|![](https://img.shields.io/codefactor/grade/github/Lateralus138/blackhosts/master?style=for-the-badge)|NA|
-|Linux: `Build`/`Publish`|![blackhosts - Rust Build - Linux](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Linux%20Build/master?style=for-the-badge)|![Linux MD5](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_linux_md5.json)|
-|Debian: `Build`/`Publish`|![blackhosts - Rust Build - Debian](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Debian%20Build/master?style=for-the-badge)|![Linux MD5](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_debian_md5.json)|
-|Windows: `Build`/`Publish`|![blackhosts - Rust Build - Windows](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/Windows%20Build/master?style=for-the-badge)|![Linux MD5](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_windows_md5.json)|
-|MacOS: `Build`/`Publish`|![blackhosts - Rust Build - MacOS](https://img.shields.io/github/workflow/status/Lateralus138/blackhosts/MacOS%20Build/master?style=for-the-badge)|![Linux MD5](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_darwin_md5.json)|
+|Linux: `Build`/`Publish`|![blackhosts - Rust Build - Linux](https://img.shields.io/github/actions/workflow/status/Lateralus138/blackhosts/rust_linux.yml?style=for-the-badge)|![Linux sha256](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_linux_sha256.json)|
+|Debian: `Build`/`Publish`|![blackhosts - Rust Build - Debian](https://img.shields.io/github/actions/workflow/status/Lateralus138/blackhosts/rust_debian.yml?style=for-the-badge)|![Linux sha256](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_debian_sha256.json)|
+|Windows: `Build`/`Publish`|![blackhosts - Rust Build - Windows](https://img.shields.io/github/actions/workflow/status/Lateralus138/blackhosts/rust_windows.yml?style=for-the-badge)|![Linux sha256](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_windows_sha256.json)|
+|MacOS: `Build`/`Publish`|![blackhosts - Rust Build - MacOS](https://img.shields.io/github/actions/workflow/status/Lateralus138/blackhosts/rust_macos.yml?style=for-the-badge)|![Linux sha256](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/blackhosts_macos_sha256.json)|
 
 <!-- #### Latest Branch Build Status
 
@@ -419,7 +418,7 @@ If you like this project and care to donate to my ***PayPal***:
 
 Or ***Buy Me A Coffee*** if your prefer:
 
-[![Buy Me A Coffee](./docs/media/images/buymeacoffe_a.png)](https://www.buymeacoffee.com/ianalanpride)
+[![Buy Me A Coffee](docs/media/images/buymeacoffe_a.png)](https://www.buymeacoffee.com/ianalanpride)
 
 ---
 

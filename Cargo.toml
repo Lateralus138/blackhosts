@@ -12,9 +12,4 @@ curl = "0.4.34"
 recolored = "1.9.3"
 regex = "1.4.2"
 md5 = "0.7.0"
-
-[profile.release]
-lto = true
-codegen-units = 1
-panic = "abort"
-strip = true
+openssl = { version = "0.10", features = ["vendored"] }

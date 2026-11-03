@@ -1,0 +1,75 @@
+name: Linux Build Test
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "v*.*.*"
+env:
+  RELEASE_TITLE: "BlackHosts"
+  RELEASE_FILE: "./docs/md/release.md"
+  PRERELEASE_FILE: "./docs/md/pre-release.md"
+  PRERELEASE: true
+
+jobs:
+  build_test:
+    name: Build Test 2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Toolchain Setup
+        uses: actions-rs/toolchain@v1.0.7
+        with:
+          toolchain: stable
+      - name: Pre-Setup
+        id: pre-setup
+        run: |
+          mkdir -p build/{linux,debian}
+          if ${{ env.PRERELEASE }}; then
+            release_file=${{ env.PRERELEASE_FILE }}
+          else
+            release_file=${{ env.RELEASE_FILE }}
+          fi
+          if [[ -n "$release_file" ]]; then
+            release_body=$(cat $release_file)
+          else
+            release_body=${{ env.RELEASE_TITLE }}
+          fi
+          {
+            echo "body<<EOF"
+            echo "$release_body"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Cargo Build Linux
+        uses: actions-rs/cargo@v1.0.3
+        with:
+          command: build
+          args: --release
+      - name: Move Linux Build
+        run: |
+          build="./target/release/blackhosts"
+          if [[ -x "$build" ]]; then
+            mv "$build" build/linux/blackhosts_linux
+          else
+            exit 255
+          fi
+          blackhosts_linux_md5_text='{\n\t"schemaVersion": 1,\n\t"color": "00aedb",\n\t"label": "blackhosts_linux MD5",\n\t"message": "PLACEHOLDER",\n\t"labelColor": "1d1d1d",\n\t"style": "for-the-badge",\n\t"namedLogo": "linux"\n}'
+          if ! [[ -d "docs/json" ]]; then
+            mkdir -p docs/json
+          fi
+          if ! [[ -f "docs/json/blackhosts_linux_md5.json" ]]; then
+            touch docs/json/blackhosts_linux_md5.json
+          fi
+          echo -e "$blackhosts_linux_md5_text" > docs/json/blackhosts_linux_md5.json
+          sed -i "s/\"message\": \".*\"/\"message\": \"$(md5sum build/linux/blackhosts_linux | cut -d' ' -f 1)\"/g" docs/json/blackhosts_linux_md5.json
+      - name: Release Linux
+        uses: softprops/action-gh-release@v3
+        if: github.ref_type == 'tag'
+        with:
+          draft: false
+          files: |
+            build/linux/blackhosts_linux
+          name: ${{ env.RELEASE_TITLE }}
+          prerelease: ${{ env.PRERELEASE }}
+          body: ${{ steps.pre-setup.outputs.body }}
