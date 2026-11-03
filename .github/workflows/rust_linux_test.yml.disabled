@@ -41,7 +41,7 @@ jobs:
             echo "$release_body"
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
-      - name: Build Linux
+      - name: Cargo Build Linux
         uses: actions-rs/cargo@v1.0.3
         with:
           command: build
