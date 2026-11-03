@@ -1,0 +1,365 @@
+name: Project Build And Release
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "v*.*.*"
+env:
+  RELEASE_TITLE: "BlackHosts"
+  RELEASE_FILE: "./docs/md/release.md"
+  PRERELEASE_FILE: "./docs/md/pre-release.md"
+  CHANGELOG_FILE: "./docs/md/changelog.md"
+  SUPPORT_FILE: "./docs/md/support.md"
+  PRERELEASE: true
+
+jobs:
+  linux_and_debian_build_and_release:
+    name: Build And Release Linux
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: true
+          ref: master
+          fetch-depth: 0
+      - name: Pre-Setup Linux And Debian
+        id: pre-setup-linux
+        run: |
+          mkdir -p build/{linux,debian}
+          if ${{ env.PRERELEASE }}; then
+            release_file=${{ env.PRERELEASE_FILE }}
+          else
+            release_file=${{ env.RELEASE_FILE }}
+          fi
+          if [[ -n "$release_file" ]]; then
+            release_body="$(cat "$release_file" "${{ env.CHANGELOG_FILE }}" "${{ env.SUPPORT_FILE }}")"
+          else
+            release_body="$(cat "${{ env.CHANGELOG_FILE }}" "${{ env.SUPPORT_FILE }}")"
+          fi
+          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
+              VERSION="${GITHUB_REF_NAME#v}"
+          else
+              VERSION="0.0.0"
+          fi
+          sed -i -E "s/^version = \"[^\"]+\"$/version = \"$VERSION\"/" Cargo.toml
+          {
+            echo "body<<EOF"
+            echo "$release_body"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Cargo Toolchain Setup
+        uses: actions-rust-lang/setup-rust-toolchain@v2
+        with:
+          toolchain: stable
+
+      - name: Cargo Build Linux
+        run: cargo build --release --all-features
+
+      - name: Move Linux Build
+        id: move-linux-build
+        run: |
+          build="./target/release/blackhosts"
+          if [[ -x "$build" ]]; then
+            mv "$build" build/linux/blackhosts_linux
+          else
+            exit 255
+          fi
+          blackhosts_linux_sha256_text='{\n\t"schemaVersion": 1,\n\t"color": "00aedb",\n\t"label": "blackhosts_linux sha256",\n\t"message": "PLACEHOLDER",\n\t"labelColor": "1d1d1d",\n\t"style": "for-the-badge",\n\t"namedLogo": "linux"\n}'
+          if ! [[ -d "docs/json" ]]; then
+            mkdir -p docs/json
+          fi
+          if ! [[ -f "docs/json/blackhosts_linux_sha256.json" ]]; then
+            touch docs/json/blackhosts_linux_sha256.json
+          fi
+          echo -e "$blackhosts_linux_sha256_text" > docs/json/blackhosts_linux_sha256.json
+          sed -i "s/\"message\": \".*\"/\"message\": \"$(sha256sum build/linux/blackhosts_linux | cut -d' ' -f 1)\"/g" docs/json/blackhosts_linux_sha256.json
+          {
+            echo "checksum_timestamp<<EOF"
+            echo "$(date -u)"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Release Linux
+        id: release-linux
+        uses: softprops/action-gh-release@v3
+        if: github.ref_type == 'tag'
+        with:
+          files: |
+            build/linux/blackhosts_linux
+          name: ${{ env.RELEASE_TITLE }}
+          prerelease: ${{ env.PRERELEASE }}
+          body: ${{ steps.pre-setup-linux.outputs.body }}
+      - name: Commit Linux Checksum
+        uses: stefanzweifel/git-auto-commit-action@v7
+        if: github.ref_type == 'tag' && steps.release-linux.outcome == 'success'
+        with:
+          commit_message: Commit linux build checksum file - ${{ steps.move-linux-build.outputs.checksum_timestamp }}.
+          file_pattern: docs/json/blackhosts_linux_sha256.json
+
+      - name: Setup Debian Package Build
+        run: |
+          if ! [[ -d "./debian/usr/bin" ]]; then
+            mkdir -p "./debian/usr/bin" || exit 254
+          fi
+          if ! [[ -d "./build/debian" ]]; then
+            mkdir -p "./build/debian" || exit 253
+          fi
+          cp "./build/linux/blackhosts_linux" "./debian/usr/bin/blackhosts" || exit 252
+          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
+              VERSION="${GITHUB_REF_NAME#v}"
+          else
+              VERSION="0.0.0"
+          fi
+          echo "${VERSION}"
+          sed -i "s/^Version:.*/Version: ${VERSION}/" debian/DEBIAN/control
+          dpkg-deb --root-owner-group --build "./debian" "./build/debian/blackhosts.deb" || exit 251
+          blackhosts_debian_sha256_text='{\n\t"schemaVersion": 1,\n\t"color": "00aedb",\n\t"label": "blackhosts.deb SHA256",\n\t"message": "PLACEHOLDER",\n\t"labelColor": "1d1d1d",\n\t"style": "for-the-badge",\n\t"namedLogo": "debian"\n}'
+          if ! [[ -d "docs/json" ]]; then
+            mkdir -p docs/json
+          fi
+          if ! [[ -f "docs/json/blackhosts_debian_sha256.json" ]]; then
+            touch docs/json/blackhosts_debian_sha256.json
+          fi
+          echo -e "$blackhosts_debian_sha256_text" > docs/json/blackhosts_debian_sha256.json
+          sed -i "s/\"message\": \".*\"/\"message\": \"$(sha256sum build/debian/blackhosts.deb | cut -d' ' -f 1)\"/g" docs/json/blackhosts_debian_sha256.json
+
+      - name: Release Debian
+        id: release-debian
+        uses: softprops/action-gh-release@v3
+        if: github.ref_type == 'tag'
+        with:
+          files: |
+            build/debian/blackhosts.deb
+          name: ${{ env.RELEASE_TITLE }}
+          prerelease: ${{ env.PRERELEASE }}
+          body: ${{ steps.pre-setup-linux.outputs.body }}
+
+      - name: Commit Debian Checksum
+        uses: stefanzweifel/git-auto-commit-action@v7
+        if: github.ref_type == 'tag' && steps.release-debian.outcome == 'success'
+        with:
+          commit_message: Commit debian build checksum file - ${{ steps.move-linux-build.outputs.checksum_timestamp }}.
+          file_pattern: docs/json/blackhosts_debian_sha256.json
+
+  windows_build_and_release:
+    name: Build And Release Windows
+    needs: linux_and_debian_build_and_release
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: true
+          ref: master
+          fetch-depth: 0
+
+      - name: Pre-Setup
+        id: pre-setup-windows
+        run: |
+          New-Item -Path . -Name build/windows -ItemType Directory
+          if ('${{ env.PRERELEASE }}' -eq 'true') {
+              $releaseFile = '${{ env.PRERELEASE_FILE }}'
+          }
+          else {
+              $releaseFile = '${{ env.RELEASE_FILE }}'
+          }
+
+          $files = @()
+
+          if (-not [string]::IsNullOrWhiteSpace($releaseFile)) {
+              $files += $releaseFile
+          }
+
+          $files += '${{ env.CHANGELOG_FILE }}'
+          $files += '${{ env.SUPPORT_FILE }}'
+
+          $releaseBody = ($files | ForEach-Object {
+              Get-Content -Path $_ -Raw
+          }) -join "`n"
+          if ($env:GITHUB_REF_TYPE -eq "tag") {
+              $VERSION = $env:GITHUB_REF_NAME -replace '^v', ''
+          }
+          else {
+              $VERSION = "0.0.0"
+          }
+
+          (Get-Content Cargo.toml -Raw) -replace '(?m)^version = "[^"]+"$', "version = `"$VERSION`"" |
+              Set-Content Cargo.toml -NoNewline
+          $delimiter = [guid]::NewGuid().ToString()
+
+          @"
+          body<<$delimiter
+          $releaseBody
+          $delimiter
+          "@ | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+      - name: Cargo Toolchain Setup
+        uses: actions-rust-lang/setup-rust-toolchain@v2
+        with:
+          toolchain: stable
+
+      - name: Cargo Build Windows
+        run: cargo build --release --all-features
+
+      - name: Move Windows Build
+        id: move-windows-build
+        run: |
+          $build = './target/release/blackhosts.exe'
+          $destination = 'build/windows/blackhosts_windows.exe'
+
+          if (Test-Path -LiteralPath $build -PathType Leaf) {
+              Move-Item -LiteralPath $build -Destination $destination -Force
+          }
+          else {
+              exit 250
+          }
+
+          $checksumFile = 'docs/json/blackhosts_windows_sha256.json'
+
+          $blackhostsWindowsSha256Text = @'
+          {
+              "schemaVersion": 1,
+              "color": "00aedb",
+              "label": "blackhosts_windows.exe sha256",
+              "message": "PLACEHOLDER",
+              "labelColor": "1d1d1d",
+              "style": "for-the-badge",
+              "namedLogo": "windows"
+          }
+          '@
+
+          if (-not (Test-Path -LiteralPath 'docs/json' -PathType Container)) {
+            New-Item -ItemType Directory -Path 'docs/json' -Force | Out-Null
+          }
+
+          if (-not (Test-Path -LiteralPath $checksumFile -PathType Leaf)) {
+            New-Item -ItemType File -Path $checksumFile -Force | Out-Null
+          }
+
+          $sha256 = (Get-FileHash -LiteralPath $destination -Algorithm SHA256).Hash.ToLower()
+
+          $blackhostsWindowsSha256Text = $blackhostsWindowsSha256Text.Replace(
+            '"message": "PLACEHOLDER"',
+            "`"message`": `"$sha256`""
+          )
+
+          Set-Content -LiteralPath $checksumFile -Value $blackhostsWindowsSha256Text -Encoding utf8 -NoNewline
+
+          $checksumTimestamp = (Get-Date).ToUniversalTime().ToString('ddd MMM dd HH:mm:ss yyyy UTC')
+
+          $delimiter = [guid]::NewGuid().ToString()
+
+          @"
+          checksum_timestamp<<$delimiter
+          $checksumTimestamp
+          $delimiter
+          "@ | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+
+      - name: Release Windows
+        id: release-windows
+        uses: softprops/action-gh-release@v3
+        if: github.ref_type == 'tag'
+        with:
+          files: |
+            build/windows/blackhosts_windows.exe
+          name: ${{ env.RELEASE_TITLE }}
+          prerelease: ${{ env.PRERELEASE }}
+          body: ${{ steps.pre-setup-windows.outputs.body }}
+      - name: Commit Windows Checksum
+        uses: stefanzweifel/git-auto-commit-action@v7
+        if: github.ref_type == 'tag' && steps.release-windows.outcome == 'success'
+        with:
+          commit_message: Commit windows build checksum file - ${{ steps.move-windows-build.outputs.checksum_timestamp }}.
+          file_pattern: docs/json/blackhosts_windows_sha256.json
+
+  macos_build_and_release:
+    name: Build And Release MacOS
+    needs: windows_build_and_release
+    runs-on: macos-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: true
+          ref: master
+          fetch-depth: 0
+      - name: Pre-Setup MacOS
+        id: pre-setup-macos
+        run: |
+          mkdir -p build/macos
+          if ${{ env.PRERELEASE }}; then
+            release_file=${{ env.PRERELEASE_FILE }}
+          else
+            release_file=${{ env.RELEASE_FILE }}
+          fi
+          if [[ -n "$release_file" ]]; then
+            release_body="$(cat "$release_file" "${{ env.CHANGELOG_FILE }}" "${{ env.SUPPORT_FILE }}")"
+          else
+            release_body="$(cat "${{ env.CHANGELOG_FILE }}" "${{ env.SUPPORT_FILE }}")"
+          fi
+          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
+              VERSION="${GITHUB_REF_NAME#v}"
+          else
+              VERSION="0.0.0"
+          fi
+          sed -i '' -E "s/^version = \"[^\"]+\"$/version = \"$VERSION\"/" Cargo.toml
+          {
+            echo "body<<EOF"
+            echo "$release_body"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Cargo Toolchain Setup
+        uses: actions-rust-lang/setup-rust-toolchain@v2
+        with:
+          toolchain: stable
+
+      - name: Cargo Build MacOS
+        run: cargo build --release --all-features
+
+      - name: Move MacOS Build
+        id: move-macos-build
+        run: |
+          build="./target/release/blackhosts"
+          if [[ -x "$build" ]]; then
+            mv "$build" build/macos/blackhosts_macos
+          else
+            exit 249
+          fi
+          blackhosts_macos_sha256_text='{\n\t"schemaVersion": 1,\n\t"color": "00aedb",\n\t"label": "blackhosts_macos sha256",\n\t"message": "PLACEHOLDER",\n\t"labelColor": "1d1d1d",\n\t"style": "for-the-badge",\n\t"namedLogo": "apple"\n}'
+          if ! [[ -d "docs/json" ]]; then
+            mkdir -p docs/json
+          fi
+          if ! [[ -f "docs/json/blackhosts_macos_sha256.json" ]]; then
+            touch docs/json/blackhosts_macos_sha256.json
+          fi
+          echo -e "$blackhosts_macos_sha256_text" > docs/json/blackhosts_macos_sha256.json
+          CHECKSUM="$(shasum -a 256 build/macos/blackhosts_macos | cut -d' ' -f 1)"
+
+          CHECKSUM="$CHECKSUM" perl -pi -e 's/"message": ".*"/"message": "$ENV{CHECKSUM}"/' docs/json/blackhosts_macos_sha256.json
+          {
+            echo "checksum_timestamp<<EOF"
+            echo "$(date -u)"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Release MacOS
+        id: release-macos
+        uses: softprops/action-gh-release@v3
+        if: github.ref_type == 'tag'
+        with:
+          files: |
+            build/macos/blackhosts_macos
+          name: ${{ env.RELEASE_TITLE }}
+          prerelease: ${{ env.PRERELEASE }}
+          body: ${{ steps.pre-setup-macos.outputs.body }}
+      - name: Commit MacOS Checksum
+        uses: stefanzweifel/git-auto-commit-action@v7
+        if: github.ref_type == 'tag' && steps.release-macos.outcome == 'success'
+        with:
+          commit_message: Commit macos build checksum file - ${{ steps.move-macos-build.outputs.checksum_timestamp }}.
+          file_pattern: docs/json/blackhosts_macos_sha256.json

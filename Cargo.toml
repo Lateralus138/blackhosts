@@ -12,3 +12,4 @@ curl = "0.4.34"
 recolored = "1.9.3"
 regex = "1.4.2"
 md5 = "0.7.0"
+openssl = { version = "0.10", features = ["vendored"] }
