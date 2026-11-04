@@ -1,0 +1,10 @@
+# 
+prefix=/home/flux/git/blackhosts/target/debug/build/openssl-sys-95c323f2b8ea7030/out/openssl-build/install
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include 
+
+Name: OpenSSL
+Description: Secure Sockets Layer and cryptography libraries and tools
+Version: 3.6.3
+Requires: libssl libcrypto
