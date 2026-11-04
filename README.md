@@ -344,7 +344,7 @@ All of the most current, up-to-date files are located on the 'Stable Release' pa
 
 ### File Links
 
-[![CR](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/current_releases.json)](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.109134)
+[![CR](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/blackhosts/master/docs/json/current_releases.json)](https://github.com/Lateralus138/blackhosts/releases/tag/1.0.1793744309)
 
 ### Project Links
 
