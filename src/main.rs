@@ -23,7 +23,7 @@ fn main() {
     let mut arg_vector_new: VecDeque<String> = VecDeque::new();
     let mut affirm_bool: bool = false;
     let mut quiet_bool: bool = false;
-    let mut skip_bool: bool = false;
+    // let mut skip_bool: bool = false;
     let affirm_regex = Regex::new(r"^-([yY]|-[yY][eE][sS])$").unwrap();
     let quiet_regex = Regex::new(r"^-([qQ]|-[qQ][uU][iI][eE][tT])$").unwrap();
     let help_regex = Regex::new(r"^-([hH]|-[hH][eE][lL][pP])$").unwrap();
@@ -83,6 +83,27 @@ fn main() {
     };
     if &arg_vector.len() != &0 {
         for arg_iter in &arg_vector {
+            if help_regex.is_match(arg_iter) {
+                help_func(0, "");
+            }
+
+            if affirm_regex.is_match(arg_iter) {
+                affirm_bool = true;
+            }
+
+            if quiet_regex.is_match(arg_iter) {
+                quiet_bool = true;
+                affirm_bool = true;
+            }
+
+            if !help_regex.is_match(arg_iter)
+                && !affirm_regex.is_match(arg_iter)
+                && !quiet_regex.is_match(arg_iter)
+            {
+                arg_vector_new.push_back(arg_iter.to_string());
+            }
+        }
+/*         for arg_iter in &arg_vector {
             if help_regex.is_match(&arg_iter) {
                 skip_bool = true;
                 help_func(0,"");
@@ -103,7 +124,7 @@ fn main() {
             } else {
                 skip_bool = false;
             }
-        }
+        } */
     }
     let mut data_api = Easy::new();
     let mut  data_vector = Vec::new();
