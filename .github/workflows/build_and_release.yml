@@ -146,6 +146,8 @@ jobs:
 
   windows_build_and_release:
     name: Build And Release Windows
+    env:
+      RUSTFLAGS: -C link-arg=/IGNORE:4099
     needs: linux_and_debian_build_and_release
     runs-on: windows-latest
     permissions:
