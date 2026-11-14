@@ -17,6 +17,7 @@ use md5::compute;
 use curl::{easy::Easy};
 use regex::Regex;
 use recolored::Colorize;
+use openssl as _;
 fn main() {
     let mut arg_vector: Vec<String> = args().collect();
     arg_vector.remove(0);
