@@ -5,6 +5,7 @@ on:
       - master
     tags:
       - "v*.*.*"
+    workflow_dispatch:
 env:
   RELEASE_TITLE: "BlackHosts"
   RELEASE_FILE: "./docs/md/release.md"
