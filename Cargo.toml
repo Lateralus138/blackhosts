@@ -9,7 +9,6 @@ repository = "https://github.com/Lateralus138/blackhosts"
 readme = "README.md"
 
 license = "GPL-3.0-only"
-license-file = "LICENSE"
 
 keywords = ["hosts", "blocklist", "adblock"]
 categories = ["command-line-utilities"]
