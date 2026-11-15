@@ -5,13 +5,15 @@ on:
       - master
     tags:
       - "v*.*.*"
+  workflow_dispatch:
+
 env:
   RELEASE_TITLE: "BlackHosts"
   RELEASE_FILE: "./docs/md/release.md"
   PRERELEASE_FILE: "./docs/md/pre-release.md"
   CHANGELOG_FILE: "./docs/md/changelog.md"
   SUPPORT_FILE: "./docs/md/support.md"
-  PRERELEASE: true
+  PRERELEASE: false
 
 jobs:
   linux_and_debian_build_and_release:
@@ -146,6 +148,8 @@ jobs:
 
   windows_build_and_release:
     name: Build And Release Windows
+    env:
+      RUSTFLAGS: -C link-arg=/IGNORE:4099
     needs: linux_and_debian_build_and_release
     runs-on: windows-latest
     permissions:

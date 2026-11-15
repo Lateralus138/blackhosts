@@ -1,13 +1,27 @@
 [package]
 name = "blackhosts"
-version = "1.0.109134"
+version = "1.0.1793744309"
 authors = ["flux"]
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+description = "This is a cross-platform hosts file installer for hosts files found at the StevenBlack repository."
+repository = "https://github.com/Lateralus138/blackhosts"
+readme = "README.md"
+
+license = "GPL-3.0-only"
+
+keywords = ["hosts", "blocklist", "adblock"]
+categories = ["command-line-utilities"]
+
+include = [
+    "src/**/*",
+    "Cargo.toml",
+    "Cargo.lock",
+    "README.md",
+    "LICENSE",
+]
 
 [dependencies]
-# easy = "0.1.1
 curl = "0.4.34"
 recolored = "1.9.3"
 regex = "1.4.2"
