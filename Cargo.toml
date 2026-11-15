@@ -14,6 +14,14 @@ license-file = "LICENSE"
 keywords = ["hosts", "blocklist", "adblock"]
 categories = ["command-line-utilities"]
 
+include = [
+    "src/**/*",
+    "Cargo.toml",
+    "Cargo.lock",
+    "README.md",
+    "LICENSE",
+]
+
 [dependencies]
 curl = "0.4.34"
 recolored = "1.9.3"

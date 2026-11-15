@@ -26,6 +26,7 @@
 			- [Windows Administrator](#windows-administrator)
 		- [File Permissions](#file-permissions)
 		- [Installation](#installation)
+			- [Install via Cargo](#install-via-cargo)
 			- [Debian Installer](#debian-installer)
 				- [Install By (Double) Clicking](#install-by-double-clicking)
 				- [Install Command Line Method](#install-command-line-method)
@@ -143,6 +144,14 @@ chmod u+x /path/to/blackhosts
 ```
 
 ### Installation
+
+#### Install via Cargo
+
+If you have Rust and Cargo installed:
+
+```bash
+cargo install blackhosts
+```
 
 This program is portable, but there is a *Debian* (*.deb* file) package installer for the *Linux* binary version.
 
