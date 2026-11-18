@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - develop
+    tags:
+      - "v*.*
 
   workflow_dispatch:
 
@@ -12,7 +14,7 @@ env:
   PRERELEASE_FILE: "./docs/md/pre-release.md"
   CHANGELOG_FILE: "./docs/md/changelog.md"
   SUPPORT_FILE: "./docs/md/support.md"
-  PRERELEASE: false
+  PRERELEASE: true
 
 jobs:
   linux_and_debian_build_and_release:

@@ -1,6 +1,6 @@
 [package]
 name = "blackhosts"
-version = "1.0.1793744309"
+version = "1.1.0"
 authors = ["flux"]
 edition = "2018"
 

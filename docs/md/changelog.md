@@ -1,6 +1,6 @@
 ## Changelog
 
-### v
+### v1.1.0
 
 #### Performance Optimizations
 
